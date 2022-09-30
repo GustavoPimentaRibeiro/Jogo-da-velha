@@ -35,6 +35,18 @@ int checa_tabuleiro(char tabuleiro[TAM][TAM], short turno){
 	// vertical = 0 - coluna 1 | 1 - coluna 2 | 2 - coluna 3
 	// aux = auxilia na contagem da diagonal secundária
 	
+	short cont = 0;
+	// Checagem se todo o tabuleiro está totalmente preenchido
+	for(i = 0; i < TAM; i ++){
+		for(j = 0; j < TAM; j ++){
+			if(tabuleiro[i][j] != ' ')
+				cont ++;
+		}
+	}
+	if(cont == 9){
+		return 3;
+	}
+	
 	// Jogador 1
 	for(i = 0; i < TAM; i ++){
 		for(j = 0; j < TAM; j ++){
@@ -146,6 +158,12 @@ int main(){
 			mostrar_tabuleiro(tabuleiro);
 			printf("+=+=+=+=+=+=+=+=+=+=+=+=+=");
 			printf("\nO jogador 2 ganhou!\n");
+			printf("+=+=+=+=+=+=+=+=+=+=+=+=+=");
+			break;
+		}else if(decisao == 3){
+			mostrar_tabuleiro(tabuleiro);
+			printf("+=+=+=+=+=+=+=+=+=+=+=+=+=");
+			printf("\nO jogo empatou!\n");
 			printf("+=+=+=+=+=+=+=+=+=+=+=+=+=");
 			break;
 		}
